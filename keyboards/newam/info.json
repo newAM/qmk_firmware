@@ -26,6 +26,18 @@
         "pid": "0xBEEF",
         "vid": "0xDEAD"
     },
+    "split": {
+        "enabled": true,
+        "soft_serial_pin": "GP1",
+        "main": "right",
+        "transport": {
+            "protocol": "serial"
+        }
+    },
+    "bootmagic": {
+        "enabled": true,
+        "matrix": [0, 0]
+    },
     "layouts": {
         "LAYOUT": {
             "layout": [

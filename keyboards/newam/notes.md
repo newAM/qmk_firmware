@@ -1,17 +1,13 @@
 # Notes
 
+Building:
+
 ```bash
 qmk compile -kb newam -km default -j0
 ```
 
-Maybe configuration for split:
+Flashing, connect the RHS of R9 (SPI chip select) to GND while plugging in to enter U2F bootloader.
 
-```json
-"split": {
-    "enabled": true,
-    "soft_serial_pin": "GP1",
-    "transport": {
-        "protocol": "serial"
-    }
-}
+```bash
+qmk flash -kb newam -km default -j0
 ```
