@@ -2,6 +2,7 @@
     "manufacturer": "Alex Martens",
     "keyboard_name": "newam",
     "maintainer": "newAM",
+    "processor": "RP2040",
     "bootloader": "rp2040",
     "diode_direction": "COL2ROW",
     "features": {
@@ -12,16 +13,18 @@
         "mousekey": true,
         "nkro": true
     },
-    "matrix_pins": {
-        "cols": ["C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2"],
-        "rows": ["D1", "D1", "D1", "D1", "D1", "D1", "D1"]
+    "build": {
+        "lto": true
     },
-    "processor": "RP2040",
+    "matrix_pins": {
+        "cols": ["GP23", "GP24", "GP25", "GP26", "GP27", "GP28", "GP29", "GP22", "GP22", "GP22", "GP22", "GP22", "GP22", "GP22", "GP22", "GP22", "GP22", "GP22", "GP22"],
+        "rows": ["GP16", "GP17", "GP18", "GP19", "GP20", "GP21", "GP22"]
+    },
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x0000",
-        "vid": "0xFEED"
+        "pid": "0x000A",
+        "vid": "0x1209"
     },
     "layouts": {
         "LAYOUT_ergodox": {
