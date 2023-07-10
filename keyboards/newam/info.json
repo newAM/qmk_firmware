@@ -36,7 +36,7 @@
     },
     "bootmagic": {
         "enabled": true,
-        "matrix": [0, 0]
+        "matrix": [7, 0]
     },
     "layouts": {
         "LAYOUT": {
