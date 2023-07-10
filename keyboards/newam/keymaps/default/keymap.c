@@ -3,18 +3,23 @@
 
 #include QMK_KEYBOARD_H
 
+#include "newam.h"
+#include "action_layer.h"
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * ┌──────┬───┬───┬───┬───┬───┬───┐                     ┌───┬───┬───┬───┬───┬───┬──────┐
-     * │ `    │ 1 │ 2 │ 3 │ 4 │ 5 │ = │                     │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │    - │
+     * │Escape│F1 │F2 │F3 │F4 │F5 │   │                     │   │F6 │F7 │F8 │F9 │F10│  F11 │
      * ├──────┼───┼───┼───┼───┼───┼───┤                     ├───┼───┼───┼───┼───┼───┼──────┤
-     * │ Tab  │ Q │ W │ E │ R │ T │ = │                     │ Y │ Y │ U │ I │ O │ P │    \ │
+     * │ `    │ 1 │ 2 │ 3 │ 4 │ 5 │   │                     │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │    - │
+     * ├──────┼───┼───┼───┼───┼───┼───┤                     ├───┼───┼───┼───┼───┼───┼──────┤
+     * │ Tab  │ Q │ W │ E │ R │ T │   │                     │ Y │ Y │ U │ I │ O │ P │    \ │
      * ├──────┼───┼───┼───┼───┼───┤   │                     │   ├───┼───┼───┼───┼───┼──────┤
      * │Escape│ A │ S │ D │ F │ G ├───┤                     ├───┤ H │ J │ K │ L │ ; │    ' │
      * ├──────┼───┼───┼───┼───┼───┤   │                     │   ├───┼───┼───┼───┼───┼──────┤
-     * │Shift │ Z │ X │ C │ V │ B │ B │                     │ N │ N │ M │ , │ . │ / │ Shift│
+     * │Shift │ Z │ X │ C │ V │ B │   │                     │ N │ N │ M │ , │ . │ / │ Shift│
      * └──┬───┼───┼───┼───┼───┼───┴───┘ ┌───┬───┐ ┌───┬───┐ └───┴───┼───┼───┼───┼───┼───┬──┘
-     *    │Ctl│F4 │F5 │GUI│Alt│         │ C │ V │ │Alt│ A │         │ ← │ ↓ │ ↑ │ → │GUI│
+     *    │Ctl│GUI│ALT│ ← │ → │         │ C │ V │ │Alt│ A │         │ ↑ │ ↓ │VU │VD │   │
      *    └───┴───┴───┴───┴───┘     ┌───┼───┼───┤ ├───┼───┼───┐     └───┴───┴───┴───┴───┘
      *                              │   │   │PgU│ │PgD│   │   │
      *                              │Bsp│Bsp├───┤ ├───┤Ent│   │
@@ -31,4 +36,47 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_4,    KC_5,    KC_6,
         KC_7,    KC_8,    KC_9
     )
+};
+
+
+void matrix_init_user(void) {
+
+};
+
+void matrix_scan_user(void) {
+    uint8_t layer = get_highest_layer(layer_state);
+
+    newam_right_led_r_off();
+    newam_right_led_g_off();
+    newam_right_led_b_off();
+    switch (layer) {
+        case 1:
+            newam_right_led_r_on();
+            break;
+        case 2:
+            newam_right_led_g_on();
+            break;
+        case 3:
+            newam_right_led_b_on();
+            break;
+        case 4:
+            newam_right_led_r_on();
+            newam_right_led_g_on();
+            break;
+        case 5:
+            newam_right_led_r_on();
+            newam_right_led_b_on();
+            break;
+        case 6:
+            newam_right_led_g_on();
+            newam_right_led_b_on();
+            break;
+        case 7:
+            newam_right_led_r_on();
+            newam_right_led_g_on();
+            newam_right_led_b_on();
+            break;
+        default:
+            break;
+    }
 };

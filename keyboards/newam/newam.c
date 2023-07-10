@@ -28,9 +28,9 @@ void matrix_init_kb(void) {
     setPinOutput(R_LED_PIN);
     setPinOutput(G_LED_PIN);
     setPinOutput(B_LED_PIN);
-    newam_right_r_off();
-    newam_right_g_off();
-    newam_right_b_off();
+    newam_right_led_r_off();
+    newam_right_led_g_off();
+    newam_right_led_b_off();
 }
 
 
